@@ -1,0 +1,68 @@
+/*CSS reset*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial, sans serif;
+}
+
+ul {
+	margin-left: 40px;
+	font-size: 0.9em;
+}
+
+h1 {
+	display: inline-block;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3, p {
+	margin: 10px;
+}
+
+.selected {
+	box-shadow:0px 12px 22px 1px #333;
+}
+
+#wrapper {
+	background-color: #c7c7c7;
+	width: 900px;
+	height: auto;
+	margin: 0 auto;
+	display:block;
+}
+
+#sprites {
+	margin-left: 10px;
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.hidden {
+	display:none;
+}
+
+.display {
+	display: inline-block;
+}
+
+#content {
+	width: 220px;
+	border: 20px solid red;
+	margin: 0 10px 10px 0;
+	position: fixed;
+}
+
+#content img {
+	margin: 0 auto;
+	display: block;
+}
