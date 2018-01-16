@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Basics 1</title>
+</head>
+<body>
+<script type="text/javascript">
+//let x = [];
+//console.log(x);
+	// => logs []
+//x.push('coding');
+//x.push('dojo');
+//x.push('rocks');
+//console.log(x);
+	// => logs ["coding", "dojo", "rocks"]
+//const y = [];
+//console.log(y);
+	// => logs []
+	// I expected the following to throw an exception. It didn't
+	// Still trying to wrap my head around this one. Something to
+	// do with const creating an immutable binding but the const
+	// itself being mutable. i.e. An array is an array is an array
+	// but 42 is not 43. See added example that does throw a
+	// TypeError exception.
+//y.push(88);
+//y.push(99);
+//console.log(y);
+	// => logs [88, 99]
+//const y1 = 44;
+//console.log(y1);
+	// => logs 44
+//y1 = 43;
+	// Uncaught TypeError: Assignment to constant variable.
+//let z = [9, 10, 6, 5, -1, 20, 13, 2];
+//for (let i=0;i<z.length;i++) {
+//	console.log(z[i]);
+//}
+	// => logs 9
+	// => logs 10
+	// => logs 6
+	// => logs 5
+	// => logs -1
+	// => logs 20
+	// => logs 13
+	// => logs 2
+//for (let i=0;i<z.length-1;i++) {
+//	console.log(z[i]);
+//}
+	// => logs 9
+	// => logs 10
+	// => logs 6
+	// => logs 5
+	// => logs -1
+	// => logs 20
+	// => logs 13
+//let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+//for (let i=0;i<names.length;i++) {
+//	console.log(names[i].length);
+//}
+	// => logs 5
+	// => logs 3
+	// => logs 5
+	// => logs 6
+	// => logs 8
+//for (let i=0;i<names.length;i++) {
+//	if (names[i].length === 5) {
+//		console.log(names[i].length);
+//	}
+//}
+	// => logs 5
+	// => logs 5
+//function yell(string){
+//	console.log(string.toUpperCase());
+//};
+//yell('Bruce');
+	// => logs BRUCE
+	// You could you look on developer.mozilla.org or w3schools 
+	// to find out more about uppercasing strings in JavaScript
+</script>
+</body>
+</html>

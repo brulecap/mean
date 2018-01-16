@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Query</title>
+	<script src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>  
+</head>
+<body>
+	<div id="test_results">
+	</div>
+<script type="text/javascript">
+var $Dojo = function(selector) {
+		return new Element(selector);
+		console.log(selector);
+	};
+
+	class Element {
+		constructor(selector) {
+			this.element = document.getElementById(selector);
+		}
+		click(callback) {
+			this.element.addEventListener("click", callback);
+		}
+		mouseover(callback) {
+			this.element.addEventListener("mouseover", callback);
+		}
+		mouseout(callback) {
+			this.element.addEventListener("mouseout", callback);
+		}
+	}; 
+
+
+$Dojo("clickButton").click(function() {
+	console.log("clicked");
+});
+
+$Dojo("hoverBox").mouseover(function(){
+	$(this).css("color", "red");
+});
+$Dojo("hoverBox").mouseout(function(){
+	$(this).css("color", "black");
+});
+
+</script>
+</body>
+</html>

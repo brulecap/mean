@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Basics II</title>
+</head>
+<body>
+	<div id="test_results">
+	</div>
+<script type="text/javascript">
+// Returns if a value is really a number
+function isNumber (value) {
+	return typeof value === 'number' && isFinite(value);
+};
+// Returns if a value is an array
+function isArray (value) {
+	return value && typeof value === 'object' && value.constructor === Array;
+};
+// Returns if a value is a string
+function isString (value) {
+	return typeof value === 'string' || value instanceof String;
+};
+// parameter: array
+// Returns true if array contains all positive numbers, 0 inclusive
+function zero_negativity(x) {
+	if isArray(x) {
+		for (let i=0;i<x.length;i++){
+			if (x[i] < 0) {
+				return false;
+			}
+		}
+	}
+	return true;
+};
+function magic_multiply(x, y){
+	if ((x === 0) && (y === 0)) {
+		return "All inputs 0";
+	} else if (isString(y)) {
+		return "Error: Can not multiply by string";
+	} else if (isNumber(x) && isNumber(y)) {
+		return x*y;
+	} else if (isArray(x)) {
+		// Multiply each array value by y
+		let returnValue = [];
+		for (let i=0;i<x.length;i++) {
+			returnValue.push(x[i]*y);
+		}
+		return returnValue;
+	} else if (isString(x)) {
+		// Add string x to itself y times
+		let returnValue = x;
+		// Loop through y-1 times because return value is intialized to x
+		// thus only requiring y-1 additions.
+		for (let i=0;i<y-1;i++) {
+			returnValue += x;
+		}
+		return returnValue;
+	}
+	return "Error: Unknown data type"
+}
+function appendParagraph(parent, pText) {
+let para = document.createElement("p").innerHTML(pText);
+parent.appendChild(para);
+};
+// Get parent div for test result insertion.
+// Used in calls to function appendParagraph()
+let parent = document.getElementById("test_results");
+// test1: zero_negativity is true
+let test1 = zero_negativity([1,2,3,0]);
+appendParagraph('test1 zero_negativity is ' + test1)
+console.log('test1 zero_negativity is ' + test1)
+// test2: zero_negativity is false
+let test2 = zero_negativity([1,2,-3,0]);
+console.log('test2 zero_negativity is ' + test1);
+</script>
+</body>
+</html>

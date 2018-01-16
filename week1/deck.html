@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Deck</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<style>
+			.card {
+				display:inline-block;
+				text-align:center;
+				margin:5px;
+				padding:18px 15px 0 15px;
+				width:70px;
+				height:40px;
+				font-size:22px;
+				background-color:#999999;
+				border: solid 1px black;
+			}
+
+			.red {
+				background-color:#E55451;
+				border: solid 1px #8C001A;
+				color:#8C001A;
+			}
+
+			.template {
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<button id="drawbtn">DRAW A CARD</button>
+		</div>
+		<div class="card template">
+			<span class="rank">10</span>
+			<span class="suit">Hearts</span>
+		</div>
+		<script type="text/javascript">
+			var suits = [ "hearts", "diams", "clubs", "spades" ];
+			var ranks = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A" ];
+			var deck = [];
+			$(init);
+			function init() {
+				makeDeck();
+				$("#drawbtn").click( function() {
+					var myCard = drawCard();
+					if( myCard ) {
+						makeCard( myCard.suit, myCard.rank );
+					} else {
+						alert("no more cards in the deck");
+					}
+				});
+			}
+
+			function makeDeck() {
+				deck = [];
+				//for each type of suit
+				for( var i = 0; i < suits.length; i++ ) {
+					//and for each rank
+					for( var j = 0; j < ranks.length; j++ ) {
+						//make a card
+						var card = {};
+						card.suit = suits[i];
+						card.rank = ranks[j];
+						deck.push(card);
+					}
+				}
+				console.log( "MADE A NEW DECK OF ", deck.length, " CARDS" );
+				console.log( deck );
+			}
+
+			function drawCard() {
+				var card;
+				if( deck.length > 0 ) {
+	
+					var randIndex = Math.floor( Math.random() * deck.length );
+					card = deck.splice( randIndex, 1 )[0];
+				}
+				return card;
+			}
+
+			function makeCard( suit, rank ) {
+				var card = $(".card.template").clone();
+				card.removeClass("template");
+				card.find(".rank").html(rank);
+				card.find(".suit").html("&"+suit+";");
+				if( suit === "hearts" || suit === "diams" ) {
+					card.addClass("red");
+				}
+				$("body").append(card);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<button id="gitHubButton">Get Me from Github!</button>
+		<p id="name_holder"></p>
+		<script>
+			var button = document.getElementById("gitHubButton");
+			button.addEventListener("click", gitHubButtonClicked);
+			function getUserFromGitHub(resolve,reject) {
+				data = $.get("https://api.github.com/users/brulecap");
+				resolve(data);
+			};
+			function gitHubButtonClicked() {
+				var data = new Promise(function(resolve,reject) {
+					getUserFromGitHub(resolve,reject);
+				});
+				//If promise successful
+				data.then(function(data) {
+					$("#name_holder").html(data.name);
+				});
+				// If promise failed
+				data.catch(function() {
+					console.log('failure');
+				})
+			};
+		</script>
+	</body>
+</html>

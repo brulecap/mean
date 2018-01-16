@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Intermediate</title>
+</head>
+<body>
+<script type="text/javascript">
+// Returns if a value is really a number
+function isNumber (value) {
+	return typeof value === 'number' && isFinite(value);
+};
+// Returns if a value is an array
+function isArray (value) {
+	return value && typeof value === 'object' && value.constructor === Array;
+};
+// Returns if a value is a string
+function isString (value) {
+	return typeof value === 'string' || value instanceof String;
+};
+// parameter: number
+//			  optional character to use in string(defaults to *)
+// logs to console and returns a string of characters whose length is number 
+function starString(x, optionalChar='*') {
+	let stars = ''
+	if (isNumber(x)) {
+		stars = optionalChar.repeat(x)
+		console.log(stars)
+	}
+	return stars;
+};
+// parameter: array
+// Returns: Does not return anything
+// logs to the console(via starString) a "two-dimensional array" where the number
+// of rows is the length of the array and number of characters in each
+// row is the row's array value. The character logged is dependant on
+// the value of the array entry. If it is a number, *'s will be logged.
+// If it is a string, the first character(in lower case) will replace the
+// *'s.
+function drawStars(x) {
+	if (isArray(x)) {
+		for (let i=0;i<x.length;i++) {
+			if (isNumber(x[i])) {
+				row = starString(x[i]);
+			} else if (isString(x[i])) {
+				row = starString(x[i].length, x[i].charAt(0).toLowerCase())
+			}
+		}
+	}
+};
+// test1: starString
+console.log('test1: starString(5)')
+starString(5);
+// test2: drawStars
+console.log('\ntest2: drawStars([4, 6, 1, 3, 5, 7, 25])')
+drawStars([4, 6, 1, 3, 5, 7, 25]);
+// test3: drawStars part II
+console.log('\ntest3: drawStars([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"])')
+drawStars([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]);
+</script>
+</body>
+</html>

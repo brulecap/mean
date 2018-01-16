@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Basics II</title>
+</head>
+<body>
+	<div id="test_results">
+	</div>
+<script type="text/javascript">
+// Returns if a value is really a number
+function isNumber (value) {
+	return typeof value === 'number' && isFinite(value);
+};
+// Returns if a value is an array
+function isArray (value) {
+	return value && typeof value === 'object' && value.constructor === Array;
+};
+// Returns if a value is a string
+function isString (value) {
+	return typeof value === 'string' || value instanceof String;
+};
+// parameter: array
+// Returns false if array contains one or more negative numbers(0 exclusive) true otherwise 
+function zero_negativity(x) {
+	if (isArray(x)) {
+		for (let i=0;i<x.length;i++){
+			if (x[i] < 0) {
+				return false;
+			}
+		}
+	} else {
+		console.log("Expected array. Received var: " + x);
+	}
+	// Assignment specified returning true if array had no negative numbers and false if it does.
+	// If x is not an array then it has no negative numbers we will return true. Would need guidance
+	// here to handle a case like this. 
+	return true;
+};
+// parameter: number
+// Returns false if number is odd, true otherwise
+function is_even(x) {
+	if (isNumber(x)) {
+		if (x%2 !== 0) {
+			return false;
+		}
+	}
+	// Similar logic to edge case in function zero_negativity
+	return true;
+};
+// parameter: number
+// Returns number of even numbers in an array
+function how_many_even(x) {
+	let numberEven = 0;
+	if (isArray(x)) {
+		for (let i=0;i<x.length;i++) {
+			if (is_even(x[i])) {
+				numberEven += 1;
+			}
+		}
+	}
+	return numberEven;
+};
+// parameter: number
+// Returns an array of length specifed by paramter, each item in array
+// a random number between 0 and 9.
+function create_dummy_array(x) {
+	let dummy = [];
+	if (isNumber(x)) {
+		for (let i=0;i<x;i++) {
+			dummy.push(Math.floor(Math.random() * 10));
+		}
+	}
+	return dummy
+};
+// parameter: array
+// Returns a random element of parameter. If paramter is not an array, returns false.
+function random_choice(x) {
+	if (isArray(x)) {
+		return x[Math.floor(Math.random() * (x.length))];
+	}
+	return false
+}
+// append paragraph to parent
+// parameter list:
+//	parent: Where to insert p tag
+//	pText: Text in p tag 
+function appendParagraph(parent, pText) {
+let para = document.createElement("p");
+para.innerHTML = pText;
+parent.appendChild(para);
+};
+// Get parent div for test result insertion.
+// Used in calls to function appendParagraph()
+let parent = document.getElementById("test_results");
+// test1: zero_negativity is true
+appendParagraph(parent, 'test1 zero_negativity: ' + zero_negativity([1,2,3,0]) + ' Expected true.');
+// test2: zero_negativity is false
+appendParagraph(parent, 'test2 zero_negativity: ' + zero_negativity([1,2,-3,0]) + ' Expected false.');
+// test3: is_even is true
+appendParagraph(parent, 'test3 is_even: ' + is_even(10) + ' Expected true.');
+// test4: is_even is false
+appendParagraph(parent, 'test4 is_even: ' + is_even(13) + ' Expected false.');
+// test5: how_many_even is number of even numbers in array.
+appendParagraph(parent, 'test5 how_many_even: ' + how_many_even([0,2,3,8,21]) + ' Expected 3.');
+// test6: create_dummy_array is an array of random numbers between 0 and 9 with length of parameter.
+appendParagraph(parent, 'test6 create_dummy_array: [' + create_dummy_array(7) + '] Expected an array of length 7, all numbers between 0 and 9 inclusive.');
+// test7: random_choice is an array of random numbers between 0 and 9 with length of parameter.
+appendParagraph(parent, 'test7 random_choice: ' + random_choice([1,2,3,4,5,6,7]) + ' Expected a number contained in array [1,2,3,4,5,6,7].');
+</script>
+</body>
+</html>
