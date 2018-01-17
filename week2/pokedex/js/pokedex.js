@@ -19,7 +19,6 @@ $(document).ready(function(){
 	};
 
 	$("#sprites").on("click", "img", function() {
-
 		// Create promise
 		let p = new Promise((resolve, reject) => {
 			let data = $.get(pokeURL2 + $(this).attr("id") + "/")
