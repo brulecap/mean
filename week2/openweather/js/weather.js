@@ -14,7 +14,8 @@ $(document).ready(function(){
 	let base_url = "http://api.openweathermap.org/data/2.5/weather?units=imperial";
 	let api_key = "&appid=6dc2cc8059d26537c82de1951003f2f8";
 	let city_prefix = "&q=";
-	localStorage.removeItem("lastLocation");
+// Uncomment next line for test purposes. Otherwise lastLocation wil be removed on page refresh.
+//	localStorage.removeItem("lastLocation");
 	displayMessage();
 	$('form').submit(function() {
 		if ($("#location").val()!= "") {
