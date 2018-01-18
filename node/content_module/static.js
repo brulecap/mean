@@ -33,16 +33,10 @@ function isValidCSS(splitFileName, splitUrl){
 function isValidImage(splitFileName, splitUrl){
 	// Check url is of the form "/imageDirectory/imagename".
 	// Note: splitUrl should be as follows: ['', cssDirectory, cssFileName]. Image extension
-	// will be check in getImageMimeType.
-	console.log(splitUrl[1]);
-	console.log(splitUrl[2]);
-	console.log(splitFileName[0]+'.'+splitFileName[1]);
-
+	// will be checked in getImageMimeType.
 	if ((splitUrl[1] === imageDirectory) && (splitUrl[2] === (splitFileName[0]+'.'+splitFileName[1]))) {
-		console.log('returning true');
 		return true;
 	}
-	console.log('returning false');
 	return false;
 }
 

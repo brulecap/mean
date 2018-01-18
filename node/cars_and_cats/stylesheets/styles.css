@@ -53,3 +53,7 @@ figure {
 	vertical-align: middle;
 	margin: 40px;
 }
+
+figcaption {
+	font-weight: bold;
+}
