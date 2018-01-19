@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Dojo Survey Result</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Submitted Info</h1>
+			<h2>Name:</h2>
+			<p><%= result.name %></p>
+			<h2>Dojo Location:</h2>
+			<p><%= result.location %></p>
+			<h2>Favorite Language:</h2>
+			<p><%= result.language %></p>
+			<h2>Comment:</h2>
+			<p><%= result.comment %></p>
+			<a class="btn btn-primary" href="/">Go Back</a>
+		</div>
+	</body>
+</html>
