@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Great Number Game!</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="The Great Number Game">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="number.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Welcome to the Great Number Game!</h1>
+			<p>I am thinking of a number between 1 and 100</p>
+			<p>Take a guess!</p>
+			<div id="guess_result" class="hidden">
+				<h2>This is a test</h2>
+			</div>
+			<form id="guess" action='/guess' method='post'>
+				<input type="text" name="guess" id="number" autocomplete="off">
+				<input type="submit" value="Submit">
+			</form>
+			<a id="reset" class="hidden" href="/reset">Play again!</a>
+		</div>
+	</body>
+</html>
