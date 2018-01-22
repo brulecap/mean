@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Epic Button</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type ="text/javascript" src="epic_button.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>The button has been pushed <span id="count"><%= count %></span> time(s)</h1>
+			<p>Push button to update the count!</p>
+			<button class="btn btn-primary">Push the epic button</button>
+			<a class="btn btn-danger" href="/reset">Reset count</a>
+		</div>
+	</body>
+</html>
