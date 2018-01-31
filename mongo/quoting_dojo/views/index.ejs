@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quoting Dojo</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Welcome to Quoting Dojo</h1>
+<% if(typeof(errors) != 'undefined') { %>
+			<p class="text-danger">Validation errors</p>
+	<% for (var x in errors) { %>
+			<p class="text-warning"><%= errors[x] %></p>
+	<% } %>
+<% } %>
+			<form action="/quotes" method="POST">
+				<div class="form_group">
+					<label for="name">Your name:</label>
+					<input type="text" id="name" name="name">
+				</div>
+				<div class="form_group">
+					<label for="quote">Your quote:</label>
+					<textarea name="quote" id="quote" placeholder="Enter quote..."></textarea>
+				</div>
+				<div class="form_group">
+					<input class="btn btn-primary" type="submit" value="Add my quote!">
+					<a class="btn btn-primary" href="/quotes">Skip to quotes</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<%
+function format_date_time(date) {
+	let hours = date.getHours();
+	let minutes = date.getMinutes();
+	let ampm = hours >= 12 ? 'pm' : 'am';
+	hours = hours % 12;
+	hours = hours ? hours : 12; // the hour '0' should be '12'
+	minutes = minutes < 10 ? '0'+minutes : minutes;
+	const month_names = ["January", "February", "March", "April", "May", "June",
+					  "July", "August", "September", "October", "November", "December"];
+	return hours + ":" + minutes + ampm + " " + month_names[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear();
+}
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quoting Dojo Quotes</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if(typeof(quotes) != 'undefined') { %>
+			<h1>Here are some awesome quotes</h1>
+	<% for (var x in quotes) { %>
+			<div class="quote">
+				<p>"<%= quotes[x].quote %>"</p>
+				<p class="name_date">- <%= quotes[x].name %> at <%= format_date_time(quotes[x].created_at) %></p>
+			</div>
+	<% } %>
+<% } else { %>
+			<p>No quotes found. Use the link below to add 1!</p>
+<% } %>
+			<a class="btn btn-primary" href="/">Add a quote</a>
+		</div>
+	</body>
+</html>

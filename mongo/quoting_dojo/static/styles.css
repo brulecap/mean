@@ -1,0 +1,43 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: arial;
+}
+
+p {
+	margin-top: 5px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.form_group {
+	margin: 5px 10px;
+}
+
+.form_group label {
+	vertical-align: top;
+}
+
+.form_group input[type="text"] {
+	width: 150px;
+}
+
+.form_group textarea {
+	width: 400px;
+	height: 150px;
+}
+
+.form_group input[type="submit"] {
+	margin: 10px 90px 20px 20px;
+}
+
+.quote {
+	margin-bottom: 5px;
+	border-bottom: 1px solid black;
+}
