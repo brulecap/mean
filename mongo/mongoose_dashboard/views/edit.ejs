@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Edit bear</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if (typeof(bear) != 'undefined') { %>
+			<form class="new_edit edit" action="/bears/<%= bear._id %>" method="post">
+				<fieldset>
+					<legend>Edit Bear</legend>
+<% if(typeof(errors) != 'undefined') { %>
+					<h1 class="text-danger">Validation errors</h1>
+					<ul>
+	<% for (var x in errors) { %>
+						<li class="text-warning"><%= errors[x] %></li>
+	<% } %>
+					</ul>
+<% } %>	
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" value="<%= bear.name %>">
+					</div>
+					<div>
+						<label for="favorite_foods">Favorite foods:</label>
+						<input type="text" id="favorite_foods" name="favorite_foods" value="<%= bear.favorite_foods %>">
+					</div>
+					<input class="btn btn-primary" type="submit" value="Update Bear">
+				</fieldset>
+				<a class="btn btn-primary" href="/">Cancel</a>
+			</form>
+<% } else { %>
+			<h1>Big problem</h1>
+			<a class="btn btn-primary" href="/">Home</a>
+<% } %>
+		</div>
+	</body>
+</html>

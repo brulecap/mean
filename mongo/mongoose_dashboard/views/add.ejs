@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Add new bear</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<form class="new_edit new" action="/bears" method="post">
+				<fieldset>
+					<legend>New Bear</legend>
+<% if(typeof(errors) != 'undefined') { %>
+					<h1 class="text-danger">Validation errors</h1>
+					<ul>
+	<% for (var x in errors) { %>
+						<li class="text-warning"><%= errors[x] %></li>
+	<% } %>
+					</ul>
+<% } %>	
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name">
+					</div>
+					<div>
+						<label for="favorite_foods">Favorite foods:</label>
+						<input type="text" id="favorite_foods" name="favorite_foods">
+					</div>
+					<input class="btn btn-primary" type="submit" value="Add Bear">
+				</fieldset>
+				<a class="btn btn-primary" href="/">Return Home</a>
+			</form>
+		</div>
+	</body>
+</html>

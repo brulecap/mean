@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bear Pack</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if((typeof(bears) != 'undefined') && (bears.length > 0)) { %>
+			<table class="table table-striped">
+				<caption>The Bear Pack</caption>
+				<tr>
+					<th>Name</th>
+					<th>Favorite Foods</th>
+					<th>Actions</th>
+				</tr>
+	<% for (var x in bears) { %>
+				<tr>
+					<td><%= bears[x].name %></td>
+					<td><%= bears[x].favorite_foods %></td>
+					<td>
+						<a class="btn btn-primary" href="/bears/edit/<%= bears[x]._id %>">Edit</a>
+						<form action="/bears/destroy/<%= bears[x]._id %>" method="post" onsubmit="return confirm('Do you really want to delete <%= bears[x].name %>?');">
+							<input class="btn btn-danger" type="submit" value="Delete">
+						</form>
+					</td>
+				</tr>
+	<% } %>
+			</table>
+<% } else { %>
+			<h4>No bears. :( Add one using the link below.</h4>
+<% } %>
+			<a class="btn btn-primary" href="/bears/new">Add bear</a>
+		</div>
+	</body>
+</html>
