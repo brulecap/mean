@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Registration</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if (typeof(errors) != 'undefined') { %>
+			<h1 class="text-danger">Validation errors</h1>
+			<ul>
+	<% for (var x in errors) { %>
+				<li class="text-warning"><%= errors[x] %></li>
+	<% } %>
+			</ul>
+<% } %>
+			<form action='/' method='post'>
+				<label for="first_name">First Name:</label>
+<% if ((typeof(first_name) != 'undefined') && (first_name != "")) { %>
+				<input type="text" name="first_name" id="first_name" value="<%= first_name %>">
+<% } else { %>
+				<input type="text" name="first_name" id="first_name">
+<% } %>
+				<label for="last_name">Last Name:</label>
+<% if ((typeof(last_name) != 'undefined') && (last_name != "")) { %>
+				<input type="text" name="last_name" id="last_name" value="<%= last_name %>">
+<% } else { %>
+				<input type="text" name="last_name" id="last_name">
+<% } %>
+				<label for="email">Email:</label>
+<% if ((typeof(email) != 'undefined') && (email != "")) { %>
+				<input type="text" name="email" id="email" value="<%= email %>">
+<% } else { %>
+				<input type="text" name="email" id="email">
+<% } %>
+				<label for="birthday">Birthday:</label>
+<% if ((typeof(birthday) != 'undefined') && (birthday != "")) { %>
+				<input type="date" name="birthday" id="birthday" value="<%= birthday %>">
+<% } else { %>
+				<input type="date" name="birthday" id="birthday">
+<% } %>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password">
+				<label for="confirm">Confirm password:</label>
+				<input type="password" name="confirm" id="confirm">
+				<input class="btn btn-primary" type="submit" value="Register">
+			</form>
+			<p>Already have an account? <a class="btn-sm btn-success" href="/login">Click here</a></p>
+		</div>
+	</body>
+</html>

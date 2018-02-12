@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Registration</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if (typeof(success) != 'undefined') { %>
+			<h1 class="text-success"><%= success %></h1>
+<% } %>
+<% if (typeof(errors) != 'undefined') { %>
+			<h1 class="text-danger">Validation errors</h1>
+			<ul>
+	<% for (var x in errors) { %>
+				<li class="text-warning"><%= errors[x] %></li>
+	<% } %>
+			</ul>
+<% } %>
+			<form action='/login' method='post'>
+				<label for="email">Email:</label>
+				<input type="text" name="email" id="email">
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password">
+				<input class="btn btn-primary" type="submit" value="Login">
+			</form>
+<% if (typeof(success) === 'undefined') { %>
+			<p>Not registered? <a class="btn-sm btn-success" href="/">Click here</a></p>
+<% } %>
+		</div>
+	</body>
+</html>

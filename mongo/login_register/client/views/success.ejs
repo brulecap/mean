@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Success</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/styles/styles.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+<% if (typeof(name) != 'undefined') { %>
+			<h1 class="text-success">Welcome <%= name %>! You successfully logged in.</h1>
+			<a class="btn-sm btn-primary" href="/logout/">Logout</a>
+<% } else { %>
+			<h1 class="text-danger">I have no idea how you got here!</h1>
+<% } %>
+		</div>
+	</body>
+</html>
