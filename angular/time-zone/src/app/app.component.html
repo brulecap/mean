@@ -1,0 +1,9 @@
+<div id="wrapper">
+	<h1>US Time Zone Display</h1>
+	<button id="pst" (click)="onButtonClick($event)" [ngClass]="{ 'on': pst }">PST</button>
+	<button id="mst" (click)="onButtonClick($event)" [ngClass]="{ 'on': mst }">MST</button>
+	<button id="cst" (click)="onButtonClick($event)" [ngClass]="{ 'on': cst }">CST</button>
+	<button id="est" (click)="onButtonClick($event)" [ngClass]="{ 'on': est }">EST</button>
+	<button (click)="onButtonClick($event)">Clear</button>
+	<p *ngIf='display_time'>{{ date_now | date:'medium':time_zone }}</p>
+</div>
