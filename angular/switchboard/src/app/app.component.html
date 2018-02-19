@@ -1,0 +1,6 @@
+<div id="wrapper">
+	<h1>Switchboard</h1>
+	<div class="block" *ngFor='let block of blocks; let idx=index'>
+		<button (click)="onButtonClick(idx)" [ngClass]="{ 'btn-sm btn-success': block.on, '.btn-sm btn-danger': !block.on }">{{  block.on ? 'On' : 'Off' }}</button>
+	</div>
+</div>
