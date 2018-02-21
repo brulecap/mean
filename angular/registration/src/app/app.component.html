@@ -1,0 +1,83 @@
+<div id="wrapper">
+	<h1>Registration</h1>
+	<div *ngIf='new_user.first_name'>
+		<p>Thank you for registering with us {{ new_user.first_name + ' ' + new_user.last_name }}. We just sent you a confirmation email at {{ new_user.email }} and we will send all mail to {{ new_user.street }}{{ new_user.unit ? ', ' + new_user.unit: '' }}, {{ new_user.city }}, {{ new_user.state }}</p>
+		<p> Have a wonderful day!</p>
+	</div> 
+	<form id="registration_form" (submit)="onSubmit()" #formData='ngForm'>
+		<div>
+			<label for="first_name">*First Name:</label>
+			<input type="text" name="first_name" id="first_name"
+				   required  minlength="3" maxlength="24" [(ngModel)]="user.first_name" #first_name='ngModel'>
+			<p [ngClass]="{ 'text-success': first_name.valid, 'text-danger': !first_name.valid }">
+				{{  first_name.valid ? 'Looks good!' : 'First name is required and should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="last_name">*Last Name:</label>
+			<input type="text" name="last_name" id="last_name"
+				   required  minlength="3" maxlength="24" [(ngModel)]="user.last_name" #last_name='ngModel'>
+			<p [ngClass]="{ 'text-success': last_name.valid, 'text-danger': !last_name.valid }">
+				{{  last_name.valid ? 'Looks good!' : 'Last name is required and should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="email">*Email:</label>
+			<input type="text" name="email" id="email"
+				   required  minlength="5" maxlength="24" [(ngModel)]="user.email" #email='ngModel'>
+			<p [ngClass]="{ 'text-success': email.valid, 'text-danger': !email.valid }">
+				{{  email.valid ? 'Looks good!' : 'Email is required and should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="password">*Password:</label>
+			<input type="password" name="password" id="password"
+				   required  minlength="6" maxlength="24" [(ngModel)]="user.password" #password='ngModel'>
+			<p [ngClass]="{ 'text-success': password.valid, 'text-danger': !password.valid }">
+				{{  password.valid ? 'Looks good!' : 'Password is required and should be at least 6 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="confirm">*Password Confirmation:</label>
+			<input type="password" name="confirm" id="confirm" required  [(ngModel)]="user.confirm" #confirm='ngModel'>
+			<p [ngClass]="{ 'text-success': user.password === user.confirm, 
+							'text-danger': user.password !== user.confirm }">
+				{{ user.password === user.confirm ? 'Passwords match!' : 'Password Confirmation is required and should match password.' }}
+			</p>
+		</div>
+		<div>
+			<label for="street">*Street Address:</label>
+			<input type="text" name="street" id="street"
+				   required  minlength="4" maxlength="24" [(ngModel)]="user.street" #street='ngModel'>
+			<p [ngClass]="{ 'text-success': street.valid, 'text-danger': !street.valid }">
+				{{ street.valid ? 'Looks good!' : 'Street is required and should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="unit">Unit/Apt. #:</label>
+			<input type="text" name="unit" id="unit"
+				   minlength="4" maxlength="24" [(ngModel)]="user.unit" #unit='ngModel'>
+			<p class="text-warning">
+				{{ 'If supplied Unit/Apt. # should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="city">*City:</label>
+			<input type="text" name="city" id="city"
+				   required  minlength="3" maxlength="24" [(ngModel)]="user.city" #city='ngModel'>
+			<p [ngClass]="{ 'text-success': city.valid, 'text-danger': !city.valid }">
+				{{ city.valid ? 'Looks good!' : 'City is required and should be at least 3 characters.' }}
+			</p>
+		</div>
+		<div>
+			<label for="state">*State:</label>
+			<select name="state" id="state" required [(ngModel)]="user.state" #state='ngModel'>
+				<option *ngFor='let state of states' value="{{state.abbreviation}}">{{ state.name }}</option>
+			</select>
+			<p [ngClass]="{ 'text-success': state.valid, 'text-danger': !state.valid }">
+				{{ state.valid ? 'Looks good!' : 'State is required. Select one!' }}
+			</p>
+		</div>
+	</form>
+	<input class="btn btn-primary" type="submit" form="registration_form" value="Register" [disabled]="!formData.valid">
+</div>
