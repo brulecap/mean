@@ -1,0 +1,9 @@
+#wrapper {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#wrapper div {
+	border: 1px solid black;
+	margin-top: 10px;
+}

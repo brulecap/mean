@@ -1,0 +1,15 @@
+div {
+	margin: 50px 25px;
+	vertical-align: top;
+	border: 1px solid DarkGray;
+	display: inline-block;
+	width: 44%;
+}
+
+p {
+	margin: 5px;
+}
+
+button {
+	margin: 3px;
+}

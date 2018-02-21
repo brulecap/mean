@@ -1,0 +1,13 @@
+div {
+	border: 1px solid DarkGray;
+	margin:30px 20px;
+	height: 75px;
+}
+
+p {
+	margin: 5px;
+}
+
+button {
+	margin: 3px;
+}
