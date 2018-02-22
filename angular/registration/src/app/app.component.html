@@ -78,6 +78,16 @@
 				{{ state.valid ? 'Looks good!' : 'State is required. Select one!' }}
 			</p>
 		</div>
+		<div>
+			<p>*I'm feeling lucky:</p>
+			<input type="radio" id="yes" name="lucky" value="true" required [(ngModel)]="user.lucky" #lucky='ngModel'>
+			<label for="yes">Yes</label>
+			<input type="radio" id="no" name="lucky" value="false" required [(ngModel)]="user.lucky" #lucky='ngModel'>
+			<label for="no">No</label>
+			<p [ngClass]="{ 'text-success': lucky.valid, 'text-danger': !lucky.valid }">
+				{{ lucky.valid ? 'Looks good!' : 'Feeling lucky is required. Select one!' }}
+			</p>
+		</div>
 	</form>
 	<input class="btn btn-primary" type="submit" form="registration_form" value="Register" [disabled]="!formData.valid">
 </div>

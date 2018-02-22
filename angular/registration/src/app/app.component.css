@@ -9,10 +9,24 @@ body {
 
 p {
 	display: inline-block;
+	margin-left: 10px;
 }
 
 label, input, select {
 	display: inline-block;
+}
+
+label[for=yes], label[for=no] {
+	width: 20px;
+	margin: 2px;
+}
+
+label[for=no] {
+	margin-right: 65px;
+}
+
+#yes {
+	margin-left: 25px;
 }
 
 label {
