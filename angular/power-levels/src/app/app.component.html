@@ -1,0 +1,21 @@
+<div id="wrapper">
+	<form (submit)="onSubmit()" #formData='ngForm'>
+		<fieldset>
+			<legend>Power Component</legend>
+			<label for="power_level">Initial Power Level</label>
+			<input name="base_power_level" id="power_level" type="number" min="1" max="100" step="1" value="50" [(ngModel)]="base_power_level">
+			<input type="submit" value="Calculate Powers">
+			<img src="./assets/images/saiyan.jpg" alt="Saiyan">
+			<div>
+				<app-human [myPowerLevel]='power_level'></app-human>
+				<app-saiyan [myPowerLevel]='power_level'></app-saiyan>
+				<app-super-saiyan [myPowerLevel]='power_level'></app-super-saiyan>
+			</div>
+			<div>
+				<app-super-saiyan-two [myPowerLevel]='power_level'></app-super-saiyan-two>
+				<app-super-saiyan-three [myPowerLevel]='power_level'></app-super-saiyan-three>
+				<app-super-saiyan-four [myPowerLevel]='power_level'></app-super-saiyan-four>
+			</div>
+		</fieldset>
+	</form>
+</div>

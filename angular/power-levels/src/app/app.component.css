@@ -1,0 +1,21 @@
+body {
+	font-family: arial;
+}
+
+fieldset {
+	margin-top: 20px;
+	width: 800px;
+}
+
+img {
+	height: 100px;
+	margin-left: 350px;
+}
+
+label, input {
+	vertical-align: top;
+}
+
+#wrapper {
+	margin: 0 auto;
+}
