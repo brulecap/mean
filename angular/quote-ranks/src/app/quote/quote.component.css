@@ -1,0 +1,32 @@
+.quote_div {
+	border: 1px solid black;
+	margin: 10px 0;
+	padding: 20px
+}
+
+.quote {
+	vertical-align: top;
+	display: inline-block;
+	width: 70%
+}
+
+.rating {
+	display:inline-block;
+	width: 10%;
+	vertical-align: top;
+}
+
+.rating h2 {
+	margin: 55px 0 0 30px;
+}
+
+.controls {
+	display: inline-block;
+	width: 15%;
+	text-align: right;
+}
+
+.controls button {
+	width: 105px;
+	margin: 5px;
+}
