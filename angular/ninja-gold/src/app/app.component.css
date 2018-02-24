@@ -1,0 +1,33 @@
+body {
+	font-family: sans-serif;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+#buildings, #history {
+	width: 900px;
+}
+
+#count {
+	width: 250px;
+}
+
+#count, #buildings, #history {
+	margin: 30px;
+	border: 1px solid black;
+}
+
+#buildings h2, #history h2, h1 {
+	border-bottom: 1px solid black;
+	text-align: center;
+	font-size: 16px;
+	margin-top: 2px;
+}
+
+#history {
+	height: 200px;
+	overflow: auto;
+}

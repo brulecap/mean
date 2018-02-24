@@ -1,0 +1,11 @@
+.building {
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+	margin: 0 20px 10px 20px;
+	text-align: center;
+}
+
+.farm p, .cave p, .house p {
+	margin-bottom: 33px;
+}

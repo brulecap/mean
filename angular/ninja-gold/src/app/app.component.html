@@ -1,0 +1,14 @@
+<div id="wrapper">
+	<div id="count">
+		<h1>Gold Count</h1>
+		<p>Gold Count: {{ gold_count }}</p>
+	</div>
+	<div id="buildings">
+		<h2>Buildings</h2>
+		<app-building *ngFor="let building of buildings" [myBuilding]='building' (goldEventEmitter)="dataFromChild($event)"></app-building>
+	</div>
+	<div id="history">
+		<h2>History</h2>
+		<app-history [history]='history'></app-history>
+	</div>
+</div>
