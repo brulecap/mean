@@ -1,0 +1,14 @@
+body {
+	font-family: sans-serif;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#wrapper div {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+}
