@@ -1,0 +1,13 @@
+<div id="dojo" *ngIf="city_weather.main">
+	<h1>{{ city_weather.display_name }}</h1>
+	<div>
+		<h2>Humidity: {{ city_weather.main.humidity }}</h2>
+		<h2>Current temperature: {{ city_weather.main.temp }}</h2>
+		<h2>High temperature: {{ city_weather.main.temp_max }}</h2>
+		<h2>Low temperature: {{ city_weather.main.temp_min }}</h2>
+		<h2>Status: {{ city_weather.weather[0].description }}</h2>
+	</div>
+	<div>
+		<img src="/assets/images/{{ city_weather.image }}">
+	</div>
+</div>

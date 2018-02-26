@@ -1,0 +1,20 @@
+#dojo {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid black;
+	text-align: center;
+}
+
+#dojo div {
+	display:inline-block;
+	margin: 20px 50px;
+	text-align: left;
+}
+
+#dojo img {
+	width: 300px;
+}
+
+#dojo h2 {
+	font-size: 20px;
+}

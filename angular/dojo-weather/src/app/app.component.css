@@ -1,0 +1,15 @@
+#wrapper {
+	margin:0 auto;
+	font-family: sans-serif;
+	text-align: center;
+	width: 900px;
+}
+
+#wrapper ul {
+	list-style-type: none;
+}
+
+#wrapper li {
+	display: inline-block;
+	margin: 0 15px;
+}
