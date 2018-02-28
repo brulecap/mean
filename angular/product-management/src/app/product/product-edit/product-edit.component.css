@@ -1,0 +1,23 @@
+form p {
+	display: inline-block;
+}
+
+label {
+	width: 150px;
+}
+
+input {
+	width: 200px;
+}
+
+input[type="number"] {
+	text-align: right;
+}
+
+input[type="submit"] {
+	width: 100px;
+}
+
+button {
+	margin-left: 175px;
+}
