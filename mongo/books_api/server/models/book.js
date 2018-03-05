@@ -1,6 +1,6 @@
 // require mongoose
 var mongoose = require('mongoose');
-// setup book schema and collection
+// setup author schema
 var AuthorSchema = new mongoose.Schema({
 	first_name: { type: String,
 				  required: [true, "First name is required."],
@@ -14,7 +14,7 @@ var AuthorSchema = new mongoose.Schema({
 				  required: [true, "Country is required."],
 				  minlength: [3, "Country must be at least 3 characters."],
 				  trim: true},
-	birthdate: 	{ type: Date,
+	birthdate: 	{ type: String,
 				  required: [true, "Birthdate is required."]},
 	books: 		[{
 				   title: { type: String,

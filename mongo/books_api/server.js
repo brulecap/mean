@@ -1,9 +1,15 @@
 // Load the express module
 var express = require("express");
+var app = express()
 // Load path
 var path = require("path");
-// invoke var express and store the resulting application in var app
-var app = express();
+app.use(function(request, response, next) {
+	// Set header to allow CORS. PUT,DELETE, and POST would need to be controlled through a login.
+	response.header("Access-Control-Allow-Origin", "*");
+	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	response.header("Access-Control-Allow-Methods", "PUT,DELETE");
+	next();
+});
 // get body parser and use it
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
