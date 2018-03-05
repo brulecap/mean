@@ -1,0 +1,30 @@
+<a [routerLink]="['new']">Add an author</a>
+<div *ngIf="authors">
+	<h2>We have these authors:</h2>
+	<table>
+		<thead class="gray">
+			<tr>
+				<th>Author</th>
+				<th>Bithdate</th>
+				<th>Country</th>
+				<th>Books</th>
+				<th>Actions Available</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let author of authors; let idx=index">
+			<tr [ngClass]="{ 'gray': idx%2 !=0 }">
+				<td>{{ author.first_name }} {{ author.last_name }}</td>
+				<td>{{ author.birthdate }}</td>
+				<td>{{ author.country }}</td>
+				<td>
+					<ul *ngIf="author.books">
+						<li *ngFor="let book of author.books">{{ book.title }}, {{ book.year | date:'yyyy' }}</li>
+					</ul>
+				<td>
+					<a class="btn btn-warning" [routerLink]="['edit', author._id]">Edit</a>
+					<button class="btn btn-danger" (click)="onDelete($event, author._id)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
