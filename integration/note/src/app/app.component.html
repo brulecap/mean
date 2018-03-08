@@ -1,0 +1,26 @@
+<div id="wrapper">
+	<h1>Anonymous Notes!</h1>
+	<div id="form">
+		<div *ngIf="errors">
+			<p class="text-danger" *ngFor="let error of errors">{{ error }}</p>
+		</div>
+		<form (submit)="onSubmit()" #formData='ngForm'>
+			<div>
+				<label for="note">Note:</label>
+				<textarea name="note" id="note" placeholder="Enter note..."
+					required minlength="3"  [(ngModel)]="note.note_text" #note_text='ngModel'></textarea>
+				<input type="submit" class="btn btn-success btn-sm" value="Add Note" [disabled]="!formData.valid">
+			</div>
+			<p [ngClass]="{ 'text-danger': !note_text.valid }">
+				{{ note_text.valid ? '' : 'Note should be at least 3 characters.' }}
+			</p>
+		</form>
+	</div>
+	<div id="notes" *ngIf="notes.length">
+		<div class="note" *ngFor="let note of notes">
+			<p class="date">Noted on: {{ note.created_at | date:'MMM d, y, h:mm:ss a' }}</p>
+			<p class="note_text">{{ note.note_text }}</p>
+			<button class="btn btn-danger btn-small" (click)="onDelete($event, note._id)">Delete</button>
+		</div>
+	</div>
+</div>

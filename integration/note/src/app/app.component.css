@@ -1,0 +1,63 @@
+body {
+	font-family: sans-serif;
+}
+
+#wrapper {
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #dddddd;
+	width: 620px;
+}
+
+#wrapper, #form, #notes, .note {
+	border: 1px solid black;
+}
+
+#form, #notes, .note {
+	background-color: white;
+}
+
+#form {
+	padding: 10px;
+}
+
+label, input {
+	vertical-align: top;
+}
+
+label {
+	margin: 15px 10px 0 10px;
+}
+
+input {
+	margin: 15px 0 0 10px;
+}
+
+textarea {
+	height: 30px;
+	margin-top: 15px;
+	width: 400px;
+}
+
+#notes {
+	margin-top: 10px;
+	overflow: auto;
+	max-height: 300px;
+}
+
+.note {
+	margin: 15px;
+}
+
+.date {
+	text-align: right;
+	margin-right: 10px;
+}
+
+.note_text {
+	margin-left: 10px;
+}
+
+button {
+	margin: 0 0 10px 445px;
+}
