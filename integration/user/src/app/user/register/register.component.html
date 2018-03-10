@@ -1,0 +1,33 @@
+<section class="row">
+	<fieldset>
+		<legend>Register</legend>
+		<div *ngIf="errors">
+			<p *ngFor="let error of errors" class="text-danger">{{ error }}</p> 
+		</div>
+		<form (submit)='onSubmit()' #formData='ngForm' class='form-group'>
+			<div class="form-control">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" required  minlength="5" [(ngModel)]="user.email" #email='ngModel'>
+				<p [ngClass]="{ 'text-danger': !email.valid }">
+					{{ email.valid ? '' : 'Email is required and should be at least 5 characters.' }}
+				</p>
+			</div>
+			<div class="form-control">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" required  minlength="8" [(ngModel)]="user.password" #password='ngModel'>
+				<p [ngClass]="{ 'text-danger': !password.valid }">
+					{{ password.valid ? '' : 'Password is required and should be at least 8 characters.' }}
+				</p>
+			</div>
+			<div class="form-control">
+				<label for="confirm">Confirm Password</label>
+				<input type="password" name="confirm" id="confirm" required minlength="8" [(ngModel)]="user.confirm" #confirm='ngModel'>
+				<p [ngClass]="{ 'text-danger': !confirm.valid }">
+					{{ confirm.valid ? '' : 'Confirm password is required and should match password.' }}
+				</p>
+			</div>
+			<button [disabled]="!formData.valid">Register</button>
+		</form>
+		<p>Already have an account? Login <a [routerLink]="['']">here</a></p>
+	</fieldset>
+</section>

@@ -1,0 +1,20 @@
+<section class="row">
+	<fieldset>
+		<legend>Login</legend>
+		<div *ngIf="errors">
+			<p *ngFor="let error of errors" class="text-danger">{{ error }}</p> 
+		</div>
+		<form (submit)='onSubmit(login.value)' #login='ngForm' class='form-group'>
+			<div class="form-control">
+				<label for="">Email</label>
+				<input type="email" name='email' #name='ngModel' [(ngModel)]='user.email'>
+			</div>
+			<div class="form-control">
+				<label for="">Password</label>
+				<input type="password" name='password' #password='ngModel' [(ngModel)]='user.password' minlength='8'>
+			</div>
+			<button [disabled]="!login.valid">Login</button>
+		</form>
+		<p>Don't have an account? Register <a [routerLink]="['register']">here</a></p>
+	</fieldset>
+</section>
